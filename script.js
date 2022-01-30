@@ -182,13 +182,6 @@ $(function () {
     }
   });
 
-  //エンターを押したらタブを作成
-  // $('#key-input').change(function () {
-  //   console.log("enter pressed")
-  //   key = $(this).val().replace("#", "s");
-  //   generateTab(key, chord_type, disp_type);
-  // });
-
   //コードタイプを選択したらタブを作成
   $('.select-chord-type').change(function () {
     chord_type = $(this).val();
@@ -207,7 +200,7 @@ $(function () {
 
   //PNGでダウンロード
   $('#download').click(function () {
-    $('#ChordName').text(key + chord_Name);//左上にコード（スケール名）を一時的に表示
+    $('#ChordName').text(key.replace("s", "#")  + chord_Name);//左上にコード（スケール名）を一時的に表示
     html2canvas(document.querySelector("#guitar")).then(canvas => {
       let downloadEle = document.createElement("a");
       downloadEle.href = canvas.toDataURL("image/png");
@@ -223,7 +216,7 @@ $(function () {
     html2canvas(document.querySelector("#guitar")).then(canvas => {
       let d = document.createElement("div");
       let h1 = document.createElement("h1");
-      h1.textContent = key + chord_Name;
+      h1.textContent = key.replace("s", "#") + chord_Name;
       d.appendChild(h1);
       d.appendChild(canvas);
       d.classList.add("keeped-flet");
