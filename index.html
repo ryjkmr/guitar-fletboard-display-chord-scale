@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guitar Code & Scale Tone Viewer</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- https://html2canvas.hertzen.com/ -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+  <script src="./script.js"></script>
+
+  <!-- 
+  copyright Ryoji Kimura https://ryjkmr.com
+  The MIT License (MIT) 
+-->
+</head>
+
+<body>
+  <div id="flet-wrapper">
+    <h1 class="title">Guitar Code & Scale Tone Viewer <span class="credit"><a href="https://ryjkmr.com/">by
+          ryjkmr.com/</a></span></h1>
+    <div class="control">
+      <input type="text" id="key-input" class="input" value="A">
+      <label for="7"><input type="radio" class="radio-button select-chord-type" id="7" name="chord-type" value="_7" data-chordname="7" checked>
+      7</label>
+      <label for="m7"><input type="radio" class="radio-button select-chord-type" id="m7" name="chord-type"  data-chordname="m7" value="m7">
+      m7</label>
+      <label for="M7"><input type="radio" class="radio-button select-chord-type" id="M7" name="chord-type"  data-chordname="M7" value="M7">
+      M7</label>
+      <label for="m7b5"><input type="radio" class="radio-button select-chord-type" id="m7b5" name="chord-type" value="m7b5" data-chordname="m7b5" >
+      m7♭5</label>
+      <label for="M"><input type="radio" class="radio-button select-chord-type" id="M" name="chord-type" value="M" data-chordname="" >
+      M</label>
+      <label for="m"><input type="radio" class="radio-button select-chord-type" id="m" name="chord-type" value="m" data-chordname="m" >
+      m</label>
+      <label for="dim"><input type="radio" class="radio-button select-chord-type" id="dim" name="chord-type" value="dim"  data-chordname="dim" >
+      dim</label>
+      <label for="root"><input type="radio" class="radio-button select-chord-type" id="root" name="chord-type" value="root" data-chordname="" >
+      root</label>
+      <br>
+      <label for="maj_scale"><input type="radio" class="radio-button select-chord-type" id="maj_scale" name="chord-type" value="maj_scale"  data-chordname=" Major Scale"  >
+      Major Scale</label>
+      <label for="maj_penta"><input type="radio" class="radio-button select-chord-type" id="maj_penta" name="chord-type" value="maj_penta"  data-chordname=" Major Pentatonic" >
+      Major Pentatonic</label>
+      <label for="min_penta" style="display: inline-block;"><input type="radio" class="radio-button select-chord-type" id="min_penta" name="chord-type" value="min_penta" data-chordname=" minor Pentatonic" >
+      Minor Pentatonic</label>
+    </div>
+
+    <div id="guitar">
+      <table>
+        <p id="ChordName"></p>
+        <tbody>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="1" class="str-on-off" checked>1</td>
+            <td class="flet-cell str1 pos-0 E"></td>
+            <td class="flet-cell str1 pos-1 F"></td>
+            <td class="flet-cell str1 pos-2 Fs Gb"></td>
+            <td class="flet-cell str1 pos-3 G "></td>
+            <td class="flet-cell str1 pos-4 Gs Ab"></td>
+            <td class="flet-cell str1 pos-5 A "></td>
+            <td class="flet-cell str1 pos-6 As Bb"></td>
+            <td class="flet-cell str1 pos-7 B "></td>
+            <td class="flet-cell str1 pos-8 C"></td>
+            <td class="flet-cell str1 pos-9 Cs Db "></td>
+            <td class="flet-cell str1 pos-10 D"></td>
+            <td class="flet-cell str1 pos-11 Ds Eb"></td>
+            <td class="flet-cell str1 pos-12 E "></td>
+            <td class="flet-cell str1 pos-13 F"></td>
+            <td class="flet-cell str1 pos-14 Fs Gb"></td>
+            <td class="flet-cell str1 pos-15 G "></td>
+            <td class="flet-cell str1 pos-16 Gs Ab"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="2" class="str-on-off" checked>2</td>
+            <td class="flet-cell str2 pos-0 B"></td>
+            <td class="flet-cell str2 pos-1 C"></td>
+            <td class="flet-cell str2 pos-2 Cs Db"></td>
+            <td class="flet-cell str2 pos-3 D "></td>
+            <td class="flet-cell str2 pos-4 Ds Eb"></td>
+            <td class="flet-cell str2 pos-5 E "></td>
+            <td class="flet-cell str2 pos-6 F"></td>
+            <td class="flet-cell str2 pos-7 Fs Gb "></td>
+            <td class="flet-cell str2 pos-8 G"></td>
+            <td class="flet-cell str2 pos-9 Gs Ab "></td>
+            <td class="flet-cell str2 pos-10 A"></td>
+            <td class="flet-cell str2 pos-11 As Bb"></td>
+            <td class="flet-cell str2 pos-12 B pos-mark"></td>
+            <td class="flet-cell str2 pos-13 C"></td>
+            <td class="flet-cell str2 pos-14 Cs Db"></td>
+            <td class="flet-cell str2 pos-15 D "></td>
+            <td class="flet-cell str2 pos-16 Ds Eb"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="3" class="str-on-off" checked>3</td>
+            <td class="flet-cell str3 pos-0 G"></td>
+            <td class="flet-cell str3 pos-1 Gs Ab"></td>
+            <td class="flet-cell str3 pos-2 A"></td>
+            <td class="flet-cell str3 pos-3 As Bb pos-mark"></td>
+            <td class="flet-cell str3 pos-4 B"></td>
+            <td class="flet-cell str3 pos-5 C pos-mark"></td>
+            <td class="flet-cell str3 pos-6 Cs Db"></td>
+            <td class="flet-cell str3 pos-7 D pos-mark"></td>
+            <td class="flet-cell str3 pos-8 Ds Eb"></td>
+            <td class="flet-cell str3 pos-9 E pos-mark"></td>
+            <td class="flet-cell str3 pos-10 F"></td>
+            <td class="flet-cell str3 pos-11 Fs Gb"></td>
+            <td class="flet-cell str3 pos-12 G "></td>
+            <td class="flet-cell str3 pos-13 Gs Ab"></td>
+            <td class="flet-cell str3 pos-14 A"></td>
+            <td class="flet-cell str3 pos-15 As Bb pos-mark"></td>
+            <td class="flet-cell str3 pos-16 B"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="4" class="str-on-off" checked>4</td>
+            <td class="flet-cell str4 pos-0 D"></td>
+            <td class="flet-cell str4 pos-1 Ds Eb"></td>
+            <td class="flet-cell str4 pos-2 E"></td>
+            <td class="flet-cell str4 pos-3 F pos-mark"></td>
+            <td class="flet-cell str4 pos-4 Fs Gb"></td>
+            <td class="flet-cell str4 pos-5 G pos-mark"></td>
+            <td class="flet-cell str4 pos-6 Gs Ab"></td>
+            <td class="flet-cell str4 pos-7 A pos-mark"></td>
+            <td class="flet-cell str4 pos-8 As Bb"></td>
+            <td class="flet-cell str4 pos-9 B pos-mark"></td>
+            <td class="flet-cell str4 pos-10 C"></td>
+            <td class="flet-cell str4 pos-11 Cs Db"></td>
+            <td class="flet-cell str4 pos-12 D "></td>
+            <td class="flet-cell str4 pos-13 Ds Eb"></td>
+            <td class="flet-cell str4 pos-14 E"></td>
+            <td class="flet-cell str4 pos-15 F pos-mark"></td>
+            <td class="flet-cell str4 pos-16 Fs Gb"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="5" class="str-on-off" checked>5</td>
+            <td class="flet-cell str5 pos-0 A"></td>
+            <td class="flet-cell str5 pos-1 As Bb"></td>
+            <td class="flet-cell str5 pos-2 B"></td>
+            <td class="flet-cell str5 pos-3 C "></td>
+            <td class="flet-cell str5 pos-4 Cs Db"></td>
+            <td class="flet-cell str5 pos-5 D "></td>
+            <td class="flet-cell str5 pos-6 Ds Eb"></td>
+            <td class="flet-cell str5 pos-7 E "></td>
+            <td class="flet-cell str5 pos-8 F"></td>
+            <td class="flet-cell str5 pos-9 Fs Gb "></td>
+            <td class="flet-cell str5 pos-10 G"></td>
+            <td class="flet-cell str5 pos-11 Gs Ab"></td>
+            <td class="flet-cell str5 pos-12 A pos-mark"></td>
+            <td class="flet-cell str5 pos-13 As Bb"></td>
+            <td class="flet-cell str5 pos-14 B"></td>
+            <td class="flet-cell str5 pos-15 C "></td>
+            <td class="flet-cell str5 pos-16 Cs Db"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="6" class="str-on-off" checked>6</td>
+            <td class="flet-cell str6 pos-0 E"></td>
+            <td class="flet-cell str6 pos-1 F"></td>
+            <td class="flet-cell str6 pos-2 Fs Gb"></td>
+            <td class="flet-cell str6 pos-3 G "></td>
+            <td class="flet-cell str6 pos-4 Gs Ab"></td>
+            <td class="flet-cell str6 pos-5 A "></td>
+            <td class="flet-cell str6 pos-6 As Bb"></td>
+            <td class="flet-cell str6 pos-7 B "></td>
+            <td class="flet-cell str6 pos-8 C"></td>
+            <td class="flet-cell str6 pos-9 Cs Db "></td>
+            <td class="flet-cell str6 pos-10 D"></td>
+            <td class="flet-cell str6 pos-11 Ds Eb"></td>
+            <td class="flet-cell str6 pos-12 E "></td>
+            <td class="flet-cell str6 pos-13 F"></td>
+            <td class="flet-cell str6 pos-14 Fs Gb"></td>
+            <td class="flet-cell str6 pos-15 G "></td>
+            <td class="flet-cell str6 pos-16 Gs Ab"></td>
+          </tr>
+          <tr>
+            <td class="str-num "><input type="checkbox" value="" class="all-on-off" checked>all</td>
+            <td class="flet-num even pos-open"><input type="checkbox" value="0" class="flet-on-off" checked>0</td>
+            <td class="flet-num odd"><input type="checkbox" value="1" class="flet-on-off" checked>1</td>
+            <td class="flet-num even"><input type="checkbox" value="2" class="flet-on-off" checked>2 </td>
+            <td class="flet-num odd"><input type="checkbox" value="3" class="flet-on-off" checked>3 </td>
+            <td class="flet-num even"><input type="checkbox" value="4" class="flet-on-off" checked>4 </td>
+            <td class="flet-num odd"><input type="checkbox" value="5" class="flet-on-off" checked>5 </td>
+            <td class="flet-num even"><input type="checkbox" value="6" class="flet-on-off" checked>6 </td>
+            <td class="flet-num odd"><input type="checkbox" value="7" class="flet-on-off" checked>7 </td>
+            <td class="flet-num even"><input type="checkbox" value="8" class="flet-on-off" checked>8 </td>
+            <td class="flet-num odd"><input type="checkbox" value="9" class="flet-on-off" checked>9 </td>
+            <td class="flet-num even"><input type="checkbox" value="10" class="flet-on-off" checked>10</td>
+            <td class="flet-num odd"><input type="checkbox" value="11" class="flet-on-off" checked>11</td>
+            <td class="flet-num even"><input type="checkbox" value="12" class="flet-on-off" checked>12</td>
+            <td class="flet-num odd"><input type="checkbox" value="13" class="flet-on-off" checked>13</td>
+            <td class="flet-num even"><input type="checkbox" value="14" class="flet-on-off" checked>14</td>
+            <td class="flet-num odd"><input type="checkbox" value="15" class="flet-on-off" checked>15</td>
+            <td class="flet-num even"><input type="checkbox" value="16" class="flet-on-off" checked>16</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="control">
+      <label for="dosuu"><input type="radio" class="radio-button select-display-type" id="dosuu" name="disp-type" value="dosuu" checked>
+      度数表示</label>
+      <label for="tone-name"><input type="radio" class="radio-button select-display-type" id="tone-name" name="disp-type" value="onmei">
+      音名表示</label>
+    </div>
+    <div class="control">
+      <button id="download" class="btn_below">Download as PNG</button>
+      <button id="keep" class="btn_below">Keep this flet board below</button>
+    </div>
+    <div id="keep_area">
+    </div>
+  </div>
+
+</body>
+
+</html>

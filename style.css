@@ -1,0 +1,137 @@
+#flet-wrapper {
+  margin-top: 50px;
+  margin-left: 5%;
+  width: 80%;
+}
+
+table {
+  width: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+table, td, th {
+  border-right: 2px solid gray;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+
+
+td, th {
+  padding: 3px;
+  width: 60px;
+  height: 50px;
+}
+
+
+td:not(.flet-num, .pos-mark, .pos-0, .str-num) {
+  background: linear-gradient(to bottom, white 0%, white 46%, black 47%, black 53%, white 54%, white 100%)
+}
+
+.pos-mark {
+  background: linear-gradient(to bottom, lightgray 0%, lightgray 46%,
+      black 47%, black 53%, lightgray 54%, lightgray 100%)
+}
+
+
+.even {
+  background-color: #707070;
+}
+
+.odd {
+  background-color: #1d1d1d;
+}
+
+.flet-num {
+  height: 25px;
+  text-align: center;
+  color: white;
+  font-size: large;
+}
+
+.flet-cell {
+  text-align: center;
+  color: gray;
+  font-size: xx-large;
+  font-weight: bold;
+  text-shadow:
+    5px 5px 5px white, -5px -5px 5px white,
+    -5px 5px 5px white, 5px -5px 5px white;
+
+}
+
+.pos-open, .pos-0, .str-num {
+  width: 30px;
+  text-align: right;
+  border-right: 7px slid black;
+}
+
+.pos-mark {
+  background-color: #818181;
+}
+
+.str1 {
+  border-top: 3px solid gray;
+}
+
+.root {
+  color: black;
+  font-weight: bold;
+}
+
+
+.third {
+  color: red;
+}
+
+.fifth {
+  color: blue;
+}
+
+.seventh {
+  color: green;
+}
+
+.control {
+  font-size: xx-large;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+label {
+  display: inline-block;
+}
+
+.radio-button {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 5px;
+  transform: scale(2.5);
+  vertical-align: 25%;
+}
+
+#key-input {
+  width: 2em;
+  font-size: 200%;
+}
+
+.btn_below {
+  margin: 10px;
+  font-size: xx-large;
+}
+
+#ChordName {
+  margin-left: 50px;
+  font-size: xx-large;
+}
+
+.keeped-flet {
+  margin-top: 30px;
+}
+
+.credit {
+  font-size: medium;
+}
